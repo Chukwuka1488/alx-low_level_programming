@@ -15,12 +15,9 @@ int main(void)
 
 	for (i = 3; i < 98; i++)
 		{
-		fib3 = (fib1 + fib2) % 2147483648;
-		if (fib3 < 0)
-		{
-		fib3 += 2147483648;
-		}
+		fib3 = (fib1 + fib2) % 0xffffffff;
 		printf("%lu", fib3);
+
 		if (i < 98)
 		{
 		printf(", ");
