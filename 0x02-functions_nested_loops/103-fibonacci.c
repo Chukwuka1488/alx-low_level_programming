@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - print the sum of the even-valued terms for a fibonacci series that do not exceed 4,000,000
+ * sum of the even-valued terms for fibonacci series that do not exceed 4,000,000
  *
  * Return: Always 0 (Success)
  */
