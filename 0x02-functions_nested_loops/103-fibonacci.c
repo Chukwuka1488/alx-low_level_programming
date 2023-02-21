@@ -17,7 +17,9 @@ int main(void)
 		curr = next;
 
 		if (curr % 2 == 0)
+		{
 		sum += curr;
+		}
 		}
 	printf("%d\n", sum);
 	return (0);
