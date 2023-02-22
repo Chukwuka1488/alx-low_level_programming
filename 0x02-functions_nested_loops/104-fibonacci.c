@@ -13,10 +13,11 @@ int main(void)
 
 	printf("%lu, %lu", fib1, fib2);
 
-	for (i = 3; i < 98; i++)
+	for (i = 3; i < 99; i++)
 		{
 		fib3 = fib1 + fib2;
 		printf(", %lu", fib3);
+
 		fib1 = fib2;
 		fib2 = fib3;
 		}
