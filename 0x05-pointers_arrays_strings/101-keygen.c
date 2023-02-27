@@ -11,15 +11,21 @@
 
 int main(void)
 {
-	char password[PASSWORD_LENGTH + 1];
+	char password[PASSWORD_LENGTH + 6];
 	int i;
 	srand(time(NULL));
 
-	for (i = 0; i < PASSWORD_LENGTH; i++)
+	password[0] = 'T';
+        password[1] = 'a';
+        password[2] = 'd';
+        password[3] = 'a';
+
+	for (i = 4; i < PASSWORD_LENGTH; i++)
 	{
 		password[i] = (rand() % ('~' - '!')) + '!';
 	}
-	password[PASSWORD_LENGTH] = '\0';
+        password[PASSWORD_LENGTH + 4] = '\n';
+	password[PASSWORD_LENGTH + 5] = '\0';
 	printf("%s", password);
 	return 0;
 }
