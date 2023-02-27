@@ -4,21 +4,22 @@
 
 #define PASSWORD_LENGTH 10
 
-int main(void) {
-    char password[PASSWORD_LENGTH + 1]; // +1 for null terminator
-    int i;
+/**
+ * main - generates a random valid password for 101-crackme
+ * Return: Always 0.
+ */
 
-    srand(time(NULL)); // Seed the random number generator with current time
+int main(void)
+{
+	char password[PASSWORD_LENGTH + 1];
+	int i;
+	srand(time(NULL));
 
-    // Generate a random password
-    for (i = 0; i < PASSWORD_LENGTH; i++)
+	for (i = 0; i < PASSWORD_LENGTH; i++)
 	{
-        // Choose a random character from the set of valid characters
-        password[i] = (rand() % ('~' - '!')) + '!'; // ASCII values of '!' to '~' are valid characters
-    }
-    password[PASSWORD_LENGTH] = '\0'; // Add null terminator at the end of the password
-
-    printf("%s", password); // Print the password to stdout
-
-    return 0;
+		password[i] = (rand() % ('~' - '!')) + '!';
+	}
+	password[PASSWORD_LENGTH] = '\0';
+	printf("%s", password);
+	return 0;
 }
