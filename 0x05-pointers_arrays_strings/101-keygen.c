@@ -1,29 +1,24 @@
 #include <stdio.h>
-#include "main.h"
 #include <stdlib.h>
 #include <time.h>
 
-/**
- * main - generates a random valid password for 101-crackme
- *
- * Return: Always 0.
- */
+#define PASSWORD_LENGTH 10
 
-int main(void)
-{
-	char password[PASSWORD_LENGTH + 1] = {0};
-	const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	const size_t charset_size = sizeof(charset) - 1;
+int main(void) {
+    char password[PASSWORD_LENGTH + 1]; // +1 for null terminator
+    int i;
 
-	srand(time(NULL));
+    srand(time(NULL)); // Seed the random number generator with current time
 
-	for (int i = 0; i < PASSWORD_LENGTH; i++)
+    // Generate a random password
+    for (i = 0; i < PASSWORD_LENGTH; i++)
 	{
-	password[i] = charset[rand() % charset_size];
-	}
+        // Choose a random character from the set of valid characters
+        password[i] = (rand() % ('~' - '!')) + '!'; // ASCII values of '!' to '~' are valid characters
+    }
+    password[PASSWORD_LENGTH] = '\0'; // Add null terminator at the end of the password
 
-	printf("%s\n", password);
+    printf("%s", password); // Print the password to stdout
 
-	return 0;
+    return 0;
 }
-
