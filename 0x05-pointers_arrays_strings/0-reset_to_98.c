@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "main.h"
 
-/*
- * reset_to_98 - updates the value it points to 98
+/**
+ * reset_to_98 - a funtion that takes a pointer to an int
  * @n: pointer parameter
  *
  * Return: Always 0
