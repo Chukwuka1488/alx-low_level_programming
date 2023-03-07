@@ -8,20 +8,37 @@
  * Return: a pointer to the beginning of the located substring, or NULL
  */
 
+/*
+ * This function looks for a smaller word (needle)
+ * inside a bigger word (haystack)
+ * If the smaller word is found inside the bigger word,
+ * it returns a pointer to the start of the smaller word
+ * If the smaller word is not found inside the bigger word,
+ * it returns a special value called NULL
+*/
+
 char *_strstr(char *haystack, char *needle)
 {
-	int i;
-	int j;
+	char *h = haystack;
+	char *n = needle;
 
-	for (j = 0; needle[j] != '\0'; j++)
+	while (*h)
 	{
-		for (i = 0; haystack[i] != '\0'; i++)
+		n = needle;
+		h = haystack;
+		while (*n)
 		{
-			if (needle[j] == haystack[i])
+			if (*h == *n)
 			{
-				return (&haystack[i]);
+				n++;
+				h++;
 			}
+			else
+				break;
 		}
+		if (*n == '\0')
+			return (haystack);
+		haystack++;
 	}
 	return (NULL);
 }
