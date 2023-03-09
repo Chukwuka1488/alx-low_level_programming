@@ -1,36 +1,26 @@
 #include "main.h"
 
 /**
- * binary_search_sqrt - use binary search to get the sqrt
+ * _sqrt_helper - to get the sqrt
  * @n: given number
- * @low: low value
- * @high: high value
+ * @next: iterative value
  *
  * Return: the square root of a number or -1
  */
 
-int binary_search_sqrt(int n, int low, int high)
+int _sqrt_helper(int n, int next)
 {
-	int mid;
-
-	if (low > high)
+	if (next * next == n)
+	{
+	return (next);
+	}
+	else if (next * next > n)
 	{
 	return (-1);
 	}
-
-	mid = (low + high) / 2;
-
-	if (mid * mid == n)
-	{
-	return (mid);
-	}
-	else if (mid * mid > n)
-	{
-	return (binary_search_sqrt(n, low, mid - 1));
-	}
 	else
 	{
-	return (binary_search_sqrt(n, mid + 1, high));
+	return (_sqrt_helper(n, next + 1));
 	}
 }
 
@@ -48,5 +38,5 @@ int _sqrt_recursion(int n)
 	{
 	return (-1);
 	}
-	return (binary_search_sqrt(n, 0, n));
+	return (_sqrt_helper(n, 0));
 }
