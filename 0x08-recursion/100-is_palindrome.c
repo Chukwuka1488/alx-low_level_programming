@@ -1,44 +1,63 @@
 #include "main.h"
 
 /**
- * _print_rev_recursive - prints a string in reverse recursively
- * @s: pointer to string to be printed
- * @reversed: pointer to buffer for reversed string
- * @i: index of next character to add to reversed string
+ * _strlen_recursive - get the length of a string
+ * @s: given string
+ *
+ * Return: length of string
  */
-void _print_rev_recursive(char *s, char *reversed, int i)
+
+int _strlen_recursive(char *s)
 {
 	if (*s == '\0')
 	{
-		reversed[i] = '\0';
-		return;
+		return (0);
 	}
-	/* call recursive function */
-	_print_rev_recursive(s + 1, reversed, i + 1);
-	reversed[i] = *s;
+
+	return (1 + _strlen_recursive(s + 1));
 }
 
+/**
+ * _check_palindrome - check if a string is a palindrome
+ * @s: given string
+ * @left: index of the leftmost string
+ * @right: index of the rightmost string
+ *
+ * Return: true or false
+ */
+
+int _check_palindrome(char *s, int left, int right)
+{
+	if (left >= right)
+	{
+		return (1);
+	}
+	else if (s[left] == s[right])
+	{
+		return (_check_palindrome(s, left + 1, right - 1));
+	}
+	else
+	{
+		return (0);
+	}
+}
 /**
  * is_palindrome - checks if a string is a palindrome recursively
  * @s: pointer to string to be checked
  *
  * Return: 1 if the string is a palindrome, 0 otherwise
  */
+
 int is_palindrome(char *s)
 {
-	char reversed[1024];
-	int len = 0, i;
+	int len;
+	int left = 0;
+	int check_pal;
 
-	while (s[len] != '\0')
-		len++;
+	len = _strlen_recursive(s);
+	check_pal = _check_palindrome(s, left, len - 1);
 
-	_print_rev_recursive(s, reversed, 0);
-
-	for (i = 0; i < len; i++)
-	{
-		if (s[i] != reversed[i])
-			return (0);
-	}
-
+	if (!check_pal)
+		return (0);
 	return (1);
 }
