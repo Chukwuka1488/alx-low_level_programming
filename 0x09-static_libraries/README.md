@@ -110,3 +110,28 @@ Now, when you need anyone library created above, you just add the library to you
 ```bash
 gcc main.c -L. -library_name -o the_program
 ```
+
+Here is a script that you can use to create a static library called liball.a from all the .c files in the current directory:
+
+#!/bin/bash
+
+# Compile all .c files into .o files
+```bash
+gcc -c *.c
+```
+
+# Create a static library from all .o files
+```bash
+ar rcs liball.a *.o
+```
+To use this script, save it to a file named create_static_lib.sh and make it executable by running the command chmod +x create_static_lib.sh. Then you can run the script by typing ./create_static_lib.sh.
+
+This will compile all .c files in the current directory into object files and then create a static library named liball.a from those object files.
+
+Here’s an explanation of each command:
+
+gcc -c \*.c: This command uses the gcc compiler to compile all .c files in the current directory into object files. The -c option tells gcc to compile the source files into object files without linking them. The resulting object files will have the same name as their corresponding source files but with a .o extension.
+
+ar rc liball.a \*.o: This command uses the ar utility to create a static library named liball.a from all the .o object files in the current directory. The r option tells ar to replace any existing members in the archive with new members of the same name, and the c option tells it to create a new archive if one does not already exist.
+
+ranlib liball.a: This command uses the ranlib utility to generate an index for the static library liball.a. An index is used by linkers to speed up linking with large libraries by allowing them to quickly locate symbols within the library.
