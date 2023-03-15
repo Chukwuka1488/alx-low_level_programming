@@ -48,3 +48,30 @@ So to summarize, argv is an array of strings that contains the actual command li
 ```bash
 $ ./argv "My School" "is fun"
 ```
+*Write a program that prints its name, followed by a new line.*
+
+    If you rename the program, it will print the new name, without having to compile it again
+    You should not remove the path before the name of the program
+
+This program uses the argc and argv parameters of the main function to access the command line arguments. The first argument (argv[0]) is always the name of the program. The program simply prints this argument followed by a new line.
+
+If you rename the program and run it again, it will print its new name without having to recompile it.
+
+*Write a program that prints the number of arguments passed into it.*
+
+    Your program should print a number, followed by a new line
+This program uses the argc parameter of the main function to determine the number of arguments passed to it. Since argc includes the name of the program as the first argument, we subtract 1 from it to get the number of arguments passed by the user.
+
+The (void)argv; line is used to prevent a compiler warning about an unused parameter. It simply casts argv to void to indicate that we know it’s unused.
+
+When you run this program with some arguments, it will print the number of arguments followed by a new line.
+
+*Write a program that prints all arguments it receives.*
+
+    All arguments should be printed, including the first one
+    Only print one argument per line, ending with a new line
+This program uses the argc and argv parameters of the main function to access the command line arguments. It uses a for loop to iterate over each argument and print it followed by a new line.
+
+When you run this program with some arguments, it will print each argument on a separate line.
+
+
