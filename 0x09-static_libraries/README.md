@@ -39,4 +39,74 @@ ranlib libfoo.a
 ```
 This command generates an index for the archive library "libfoo.a". The index is stored as a special object file within the archive, which the linker can use to quickly find symbols within the library.
 
+##### What is a library and why should I use them?
 
+If you have some experience with C language, might you see header files like stdio.h, stdlib.h, string.h, ctype.h, etc. These are commonly used libraries in C. Sometimes you create a function and you need to implement this function in other scripts but copy and paste the code is the worst way to implement it. Probably, C libraries are an efficient and good practice to call functions inside the program. Ok, let's talk a little bit about libraries in C.
+
+Libraries in programming languages as C allow creating reusable collections of precompiled routines code. The program could access and use these frequently functions stored in the library.
+
+The reason that is recommendable to use libraries is that they are a recursively way to load different routines that are necessary for the program regardless of repeat code lines. Libraries allow you to create one file that your program can use either during compile time (static) or run time (dynamic) to locate and use the set of functions you included in the library file.
+
+##### Differences, advantages/disadvantages between Static and Dynamic Libraries
+
+At the moment to compile the program, the linker uses the libraries listed inside the main scrip to linking whole the routines involved in the and necessaries to run correctly. There are 2 types of libraries: static or dynamic.
+
+**Static libraries**: Each routine listed in the library is linked with the rest files by the compiler, indifferently if some routine will not be used when the program is running. However, you can carry the program from other devices and it continues running well.
+
+**Dynamic libraries**: Unlike Static libraries, the routines listed in the dynamic library aren't linked with the rest files by the compiler, it only links the address memory and when the program is running it could use the function that it needs. But, if you move the program to another device, it will not have access to those routines listed inside the library.
+
+Frequently, Static libraries have a bigger size than Dynamic libraries.
+
+##### How to create a Static Library?
+
+Create a header file and list all the functions (routines) for the library, for example, the static library containing all the functions listed below:
+```bash
+int _putchar(char c);
+int _islower(int c);
+int _isalpha(int c);
+int _abs(int n);
+int _isupper(int c);
+int _isdigit(int c);
+int _strlen(char *s);
+void _puts(char *s);
+char *_strcpy(char *dest, char *src);
+int _atoi(char *s);
+char *_strcat(char *dest, char *src);
+char *_strncat(char *dest, char *src, int n);
+char *_strncpy(char *dest, char *src, int n);
+int _strcmp(char *s1, char *s2);
+char *_memset(char *s, char b, unsigned int n);
+char *_memcpy(char *dest, char *src, unsigned int n);
+char *_strchr(char *s, char c);
+unsigned int _strspn(char *s, char *accept);
+char *_strpbrk(char *s, char *accept);
+char *_strstr(char *haystack, char *needle);
+```
+
+To compile each function listed in the header file, using gcc compiler:
+```bash
+gcc -Wall -pedantic -Werror -Wextra -c *.c
+```
+
+Next step is to create the object files for each \*.c file and create the static library, like this:
+```bash
+ar -rc libstatic1.a *.o
+```
+
+Well done! a static library called "libstatic1.a" was created.
+
+##### How to create a Dynamic Library?
+
+Dynamic libraries creation is easier than Static libraries because there's no need to create object files. You should make Position Independent Code -PIC- and specify the library name finished with .so extension:
+
+```bash
+gcc -fPIC *.c -shared -o dynamic_library_name.so
+```
+
+##### How to use a Static or Dynamic Library?
+
+Now, when you need anyone library created above, you just add the library to your main.c file at the moment to compile, and you will obtain an executable file called "the_program":
+
+```bash
+gcc main.c -L. -library_name -o the_program
+```
