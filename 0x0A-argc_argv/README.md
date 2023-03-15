@@ -74,4 +74,46 @@ This program uses the argc and argv parameters of the main function to access th
 
 When you run this program with some arguments, it will print each argument on a separate line.
 
+*Write a program that multiplies two numbers.*
+
+    Your program should print the result of the multiplication, followed by a new line
+    You can assume that the two numbers and result of the multiplication can be stored in an integer
+    If the program does not receive two arguments, your program should print Error, followed by a new line, and return 1
+
+In this program, we first check if two arguments were passed to the program (argc should be 3, since the first argument is the name of the program itself). If not, we print an error message and return 1.
+
+Next, we use the atoi() function to convert the two command line arguments to integers. We then multiply the numbers and print the result using printf().
+
+Note that this program assumes that the two numbers and the result of the multiplication can be stored in an integer. If the numbers are very large, you may need to use a different data type to store the result.
+
+*Write a program that adds positive numbers.*
+
+    Print the result, followed by a new line
+    If no number is passed to the program, print 0, followed by a new line
+    If one of the number contains symbols that are not digits, print Error, followed by a new line, and return 1
+    You can assume that numbers and the addition of all the numbers can be stored in an int
+
+This program uses the argc and argv parameters of the main function to access the command line arguments. It uses a nested for loop to iterate over each argument and convert it from a string to an integer.
+
+The inner for loop iterates over each character in the current argument. If it encounters a character that is not a digit ('0' to '9'), it prints an error message and returns 1 to indicate an error. Otherwise, it adds the value of the character to a running total for the current argument.
+
+Once all arguments have been processed and converted to integers, the program adds them up and stores the result in a variable. Finally, it prints the result followed by a new line.
+
+When you run this program with some positive integer arguments, it will print their sum followed by a new line. If you don’t provide any arguments or if one of the arguments contains non-digit characters, it will print an error message and return 1.
+
+*Write a program that prints the minimum number of coins to make change for an amount of money.*
+
+    Usage: ./change cents
+    where cents is the amount of cents you need to give back
+    if the number of arguments passed to your program is not exactly 1, print Error, followed by a new line, and return 1
+    you should use atoi to parse the parameter passed to your program
+    If the number passed as the argument is negative, print 0, followed by a new line
+    You can use an unlimited number of coins of values 25, 10, 5, 2, and 1 cent
+
+    The program first checks that it has exactly one command line argument.
+    The program then converts the argument to an integer using the atoi function. If the argument is negative, the program prints 0 and exits.
+    The program initializes an array coins with the values of the coins we can use to make change.
+    The program then iterates over the coins array, dividing the remaining amount of money by each coin and adding the result to a num_coins variable. The program then updates the remaining amount of money by taking the modulus of the division.
+    Finally, the program prints the minimum number of coins required to make change.
+
 
