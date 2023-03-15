@@ -4,6 +4,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - multiplies two numbers
@@ -15,9 +16,8 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j;
-	int a = 0;
-	int b = 0;
+	int a;
+	int b;
 	int result;
 
 	if (argc != 3)
@@ -26,11 +26,9 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	for (i = 0; argv[1][i] != '\0'; i++)
-		a = a * 10 + argv[1][i] - '0';
-
-	for (j = 0; argv[2][j] != '\0'; j++)
-		b = b * 10 + argv[2][j] - '0';
+	/* convert command line args to integers */
+	a = atoi(argv[1]);
+	b = atoi(argv[2]);
 
 	result = a * b;
 
