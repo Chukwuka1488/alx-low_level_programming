@@ -136,3 +136,46 @@ The function then calls malloc to allocate memory for the array. The size of the
 The function then uses memset to set all bytes in the allocated memory block to 0. Finally, it returns a pointer to the allocated memory.
 
 
+##### Write a function that creates an array of integers.
+
+    Prototype: int *array_range(int min, int max);
+    The array created should contain all the values from min (included) to max (included), ordered from min to max
+    Return: the pointer to the newly created array
+    If min > max, return NULL
+    If malloc fails, return NULL
+
+
+This function takes two integers min and max as arguments. It checks if min is greater than max and returns NULL if it is.
+
+The function then calls malloc to allocate memory for the array. The size of the memory block is calculated as the product of the number of elements in the array (max - min + 1) and the size of each element (sizeof(int)). If malloc fails and returns NULL, the function returns NULL.
+
+The function then uses a loop to initialize each element in the array with values from min to max. Finally, it returns a pointer to the newly created array.
+
+##### Write a function that reallocates a memory block using malloc and free
+
+    Prototype: void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+    where ptr is a pointer to the memory previously allocated with a call to malloc: malloc(old_size)
+    old_size is the size, in bytes, of the allocated space for ptr
+    and new_size is the new size, in bytes of the new memory block
+    The contents will be copied to the newly allocated space, in the range from the start of ptr up to the minimum of the old and new sizes
+    If new_size > old_size, the “added” memory should not be initialized
+    If new_size == old_size do not do anything and return ptr
+    If ptr is NULL, then the call is equivalent to malloc(new_size), for all values of old_size and new_size
+    If new_size is equal to zero, and ptr is not NULL, then the call is equivalent to free(ptr). Return NULL
+    Don’t forget to free ptr when it makes sense
+
+The above code is a C function that reallocates a memory block using malloc and free. The function takes three arguments: ptr, old_size, and new_size.
+
+ptr is a pointer to the memory previously allocated with a call to malloc. old_size is the size, in bytes, of the allocated space for ptr. And new_size is the new size, in bytes of the new memory block.
+
+The function first checks if the new size is equal to the old size. If it is, then it simply returns the original pointer without doing anything else.
+
+If ptr is NULL, then the call to _realloc is equivalent to calling malloc(new_size) and returning its result.
+
+If new_size is equal to zero and ptr is not NULL, then the call to _realloc is equivalent to calling free(ptr) and returning NULL.
+
+Otherwise, if none of these conditions are met, then a new memory block of size new_size bytes is allocated using malloc. If this allocation fails (i.e., if malloc returns NULL), then _realloc returns NULL as well.
+
+The contents of the original memory block pointed to by ptr are then copied over to this newly allocated memory block using the C library function memcpy. The number of bytes copied over depends on whether old_size < new_size or not. If old_size < new_size, then all old_size bytes are copied over. Otherwise (i.e., if old_size >= new_size), only new_size bytes are copied over.
+
+Finally, after copying over these contents from the original memory block pointed to by ptr into this newly allocated memory block pointed to by new_ptr , ptr itself gets freed using free(ptr) . And _realloc returns this newly allocated pointer (i.e., it returns new_ptr).
