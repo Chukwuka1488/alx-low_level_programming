@@ -120,3 +120,19 @@ This function takes two strings s1 and s2 and an unsigned integer n as arguments
 The function then allocates memory for the concatenated string using malloc. The size of the memory block is calculated as the sum of the length of s1, n, and 1 for the null terminator. If malloc fails and returns NULL, the function returns NULL.
 
 The function then uses memcpy to copy the contents of each string into the newly allocated memory block. It copies all characters from s1 followed by the first n characters from s2. Finally, it adds a null terminator at the end of the concatenated string and returns a pointer to it.
+
+##### Write a function that allocates memory for an array, using malloc.
+
+    Prototype: void *_calloc(unsigned int nmemb, unsigned int size);
+    The _calloc function allocates memory for an array of nmemb elements of size bytes each and returns a pointer to the allocated memory.
+    The memory is set to zero
+    If nmemb or size is 0, then _calloc returns NULL
+    If malloc fails, then _calloc returns NULL
+
+This function takes two unsigned integers nmemb and size as arguments. It checks if either nmemb or size is 0 and returns NULL if either is true.
+
+The function then calls malloc to allocate memory for the array. The size of the memory block is calculated as the product of nmemb and size. If malloc fails and returns NULL, the function returns NULL.
+
+The function then uses memset to set all bytes in the allocated memory block to 0. Finally, it returns a pointer to the allocated memory.
+
+
