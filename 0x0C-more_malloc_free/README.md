@@ -179,3 +179,16 @@ Otherwise, if none of these conditions are met, then a new memory block of size 
 The contents of the original memory block pointed to by ptr are then copied over to this newly allocated memory block using the C library function memcpy. The number of bytes copied over depends on whether old_size < new_size or not. If old_size < new_size, then all old_size bytes are copied over. Otherwise (i.e., if old_size >= new_size), only new_size bytes are copied over.
 
 Finally, after copying over these contents from the original memory block pointed to by ptr into this newly allocated memory block pointed to by new_ptr , ptr itself gets freed using free(ptr) . And _realloc returns this newly allocated pointer (i.e., it returns new_ptr).
+
+##### Write a program that multiplies two positive numbers.
+
+    Usage: mul num1 num2
+    num1 and num2 will be passed in base 10
+    Print the result, followed by a new line
+    If the number of arguments is incorrect, print Error, followed by a new line, and exit with a status of 98
+    num1 and num2 should only be composed of digits. If not, print Error, followed by a new line, and exit with a status of 98
+    You are allowed to use more than 5 functions in your file
+
+This program takes two command-line arguments num1 and num2, which should be positive numbers in base 10. It then checks if the number of arguments is correct and if both arguments are composed only of digits. If either of these conditions is not met, it prints “Error” followed by a new line and exits with a status of 98.
+
+If the input is valid, the program converts num1 and num2 from strings to long integers using the C library function atol, multiplies them together and prints the result followed by a new line.
