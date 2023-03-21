@@ -22,4 +22,19 @@ Finally, the function sets the age field of the dog_t struct to the input age va
 
 The _strlen function is used to determine the length of a string, and the _strcopy function is used to copy a string from one memory location to another.
 
+##### Write a function that frees dogs.
+
+    Prototype: void free_dog(dog_t *d);
+
+This code defines a function named free_dog that takes a pointer to a struct dog_t as input and frees the memory that was allocated to it.
+
+The function first checks if the input pointer d is NULL. If d is NULL, then there is no memory that was allocated to the dog_t struct, and therefore no need to free any memory. The function simply returns.
+
+If d is not NULL, the function frees the memory allocated for the owner and name fields of the dog_t struct using the free() function. This is because these fields were allocated using the malloc() function in the new_dog() function (defined elsewhere).
+
+Finally, the function frees the memory allocated for the dog_t struct itself using free(). This ensures that all memory allocated to the struct is released and not left hanging in the heap.
+
+Overall, this function serves as a cleanup mechanism for the dog_t struct that was created by the new_dog() function, preventing memory leaks in the program.
+
+
 
