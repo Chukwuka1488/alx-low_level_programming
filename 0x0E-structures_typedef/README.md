@@ -37,4 +37,39 @@ Finally, the function frees the memory allocated for the dog_t struct itself usi
 Overall, this function serves as a cleanup mechanism for the dog_t struct that was created by the new_dog() function, preventing memory leaks in the program.
 
 
+##### Write a function that initialize a variable of type struct dog
+
+    Prototype: void init_dog(struct dog *d, char *name, float age, char *owner);
+
+This code defines a function named init_dog that initializes a variable of type struct dog.
+
+The function takes four parameters:
+
+    A pointer to a struct dog variable, d, that is to be initialized.
+    A character pointer, name, that represents the name of the dog.
+    A floating-point number, age, that represents the age of the dog.
+    A character pointer, owner, that represents the owner of the dog.
+
+The function first checks if the pointer d is not NULL. If d is not NULL, it assigns the name, age, and owner values passed in to the corresponding fields of the d variable using the -> operator.
+
+Note that the name and owner fields are simply assigned the pointer values passed in, rather than allocating new memory for these fields. This means that the name and owner fields of the d variable are pointers to the same memory locations as the name and owner parameters passed to the function. Therefore, if the values of name or owner are changed after the function is called, these changes will also affect the name and owner fields of the d variable.
+
+Overall, this function is used to initialize the fields of a struct dog variable, making it easier to create and initialize new dog structs in the main program.
+
+##### Write a function that prints a struct dog
+
+    Prototype: void print_dog(struct dog *d);
+    Format: see example bellow
+    You are allowed to use the standard library
+    If an element of d is NULL, print (nil) instead of this element. (if name is NULL, print Name: (nil))
+    If d is NULL print nothing.
+
+This is a C program that defines a function called print_dog that takes a pointer to a struct dog as its argument and prints the data members of the structure to the standard output in a certain format. The dog.h header file is included, which should contain the definition of the struct dog type.
+
+The function first checks if the pointer to the structure is NULL and returns without printing anything if it is.
+
+Then, for each member of the struct dog type, the function checks if it is NULL or has an invalid value (in the case of age), and prints the appropriate message to the standard output.
+
+If the members of the struct dog type are not NULL and have valid values, the function prints the member's value in a specific format using printf. The printf function is used to format and print the string, with %s and %f being used as placeholders for the name and age members of the struct dog type respectively.
+
 
