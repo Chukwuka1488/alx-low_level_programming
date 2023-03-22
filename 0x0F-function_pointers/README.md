@@ -50,8 +50,36 @@ The other options *f = neyo; and *f = &neyo; are not correct because they attemp
 
 
 #### Task 0:
+
+Write a function that prints a name.
+
+    Prototype: void print_name(char *name, void (*f)(char *));
+
 This function takes a char* pointer name and a function pointer void (*f)(char *) as arguments. The function pointer f is a pointer to a function that takes a char* argument and returns nothing.
 
 Inside the function, we call the function pointed by f and pass it the name argument. Since f is a function pointer, we need to dereference it using the * operator before calling it.
 
 This implementation assumes that the function pointed by f is responsible for printing the name. You can pass any function that takes a char* argument and returns nothing as the second argument to print_name and it will call that function with the name argument.
+
+#### Task 1
+Write a function that executes a function given as a parameter on each element of an array.
+
+    Prototype: void array_iterator(int *array, size_t size, void (*action)(int));
+    where size is the size of the array
+    and action is a pointer to the function you need to use
+
+The function takes three arguments: a pointer to an integer array array, its size size, and a function pointer void (*action)(int) that takes an integer argument and returns nothing.
+
+The implementation uses a for loop to iterate over each element of the array and calls the function pointed to by action with the current element as its argument. The function pointer is dereferenced using the * operator before calling the function.
+
+The implementation also checks if both array and action pointers are not NULL before executing the loop to prevent any potential errors.
+
+The header description uses the Betty style, which is a popular style guide for C programming. It includes a brief summary of what the function does, followed by a description of each of its parameters and the return value. The @param tag is used to describe the parameters, and the @return tag is used to describe the return value (which is nothing, in this case).
+
+size_t is a type defined in the standard library, usually in the <stddef.h> header file. It's an unsigned integer type used to represent the size of objects, and it's commonly used for array indices, sizes, and memory allocation.
+
+size_t is guaranteed to be able to hold the size of the largest object that can be allocated on a particular system. It's also guaranteed to be an unsigned integer type, which means that it can't hold negative values.
+
+The use of size_t in the function prototype ensures that the size parameter is an unsigned integer type that can hold the size of the array. This is important because array sizes are always non-negative integers, and using an unsigned type prevents overflow errors that could occur if a signed type were used.
+
+In summary, size_t is a type defined in the standard library used to represent the size of objects, and it's commonly used for array indices and sizes. It's important to use an appropriate type like size_t for array sizes to prevent potential errors and ensure portability of the code.
