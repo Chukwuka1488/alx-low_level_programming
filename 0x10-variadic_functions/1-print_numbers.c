@@ -24,13 +24,17 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
+		/* Get the next argument value. */
 		int arg = va_arg(args, int);
+
 		printf("%d", arg);
+
 		if (i < n - 1 && separator != NULL)
 		{
 			printf("%s", separator);
 		}
 	}
+	/* Clean up. */
 	va_end(args);
 	printf("\n");
 }
