@@ -4,6 +4,9 @@ The function _putchar is a function that writes a single character to the consol
 ### Write a function that prints a string, followed by a new line.
 The function _puts_recursion is a recursive function that prints a string followed by a new line. The function takes a pointer to a string as an argument and uses recursion to print each character of the string until it reaches the null character ‘\0’ which indicates the end of the string 1.
 
+### Write a function that prints a string in reverse.
+The function _print_rev_recursion is a recursive function that prints a string in reverse. The function takes a pointer to a string as an argument and uses recursion to print each character of the string in reverse order until it reaches the null character ‘\0’ which indicates the end of the string .
+
 ##### wildcmp
 Here's the implementation of the wildcmp function in C using recursion:
 
