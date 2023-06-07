@@ -5,7 +5,10 @@ The function _putchar is a function that writes a single character to the consol
 The function _puts_recursion is a recursive function that prints a string followed by a new line. The function takes a pointer to a string as an argument and uses recursion to print each character of the string until it reaches the null character ‘\0’ which indicates the end of the string 1.
 
 ### Write a function that prints a string in reverse.
-The function _print_rev_recursion is a recursive function that prints a string in reverse. The function takes a pointer to a string as an argument and uses recursion to print each character of the string in reverse order until it reaches the null character ‘\0’ which indicates the end of the string .
+The function _print_rev_recursion is a recursive function that prints a string in reverse. The function takes a pointer to a string as an argument and uses recursion to print each character of the string in reverse order until it reaches the null character ‘\0’ which indicates the end of the string.
+
+### Write a function that returns the factorial of a given number.
+The function factorial takes an integer n as an argument and returns the factorial of that number. If n is less than 0, the function returns -1. If n is equal to 1 or 0, the function returns 1. Otherwise, the function returns n multiplied by the factorial of n-1, which is calculated recursively by calling the factorial function again with n-1 as an argument.
 
 ##### wildcmp
 Here's the implementation of the wildcmp function in C using recursion:
