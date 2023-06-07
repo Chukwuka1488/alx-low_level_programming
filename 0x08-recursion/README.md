@@ -16,6 +16,9 @@ The function _pow_recursion takes two integers x and y as arguments and returns 
 ### Write a function that returns the natural square root of a number.
 The function _sqrt_recursion takes an integer n as an argument and returns the natural square root of n. If n is less than 0, the function returns -1. Otherwise, the function calls the helper function _sqrt_helper with arguments n and 0. The _sqrt_helper function takes two integers n and next as arguments. If next * next is equal to n, the function returns next, which is the square root of n. If next * next is greater than n, the function returns -1, indicating that n does not have a natural square root. Otherwise, the function calls itself recursively with arguments n and next+1, incrementing the value of next by 1 in each recursive call until it finds the square root of n or determines that n does not have a natural square root.
 
+### Write a function that returns 1 if the input integer is a prime number, otherwise return 0.
+This is a C program that checks if a given number n is a prime number. The function is_prime_number takes an integer n as an argument and returns 1 if n is prime and 0 otherwise. The function calls the helper function is_prime_number_helper with arguments n and 2. The is_prime_number_helper function takes two integers n and i as arguments. If n is less than or equal to 2, the function checks if n is equal to 2 and returns 1 if it is, indicating that n is prime. Otherwise, the function returns 0, indicating that n is not prime. If n is divisible by i, the function returns 0, indicating that n is not prime. If i * i is greater than n, the function returns 1, indicating that n is prime. Otherwise, the function calls itself recursively with arguments n and i+1, incrementing the value of i by 1 in each recursive call until it determines whether or not n is prime.
+
 ##### wildcmp
 Here's the implementation of the wildcmp function in C using recursion:
 
