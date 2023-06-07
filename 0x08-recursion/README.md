@@ -10,6 +10,12 @@ The function _print_rev_recursion is a recursive function that prints a string i
 ### Write a function that returns the factorial of a given number.
 The function factorial takes an integer n as an argument and returns the factorial of that number. If n is less than 0, the function returns -1. If n is equal to 1 or 0, the function returns 1. Otherwise, the function returns n multiplied by the factorial of n-1, which is calculated recursively by calling the factorial function again with n-1 as an argument.
 
+### Write a function that returns the value of x raised to the power of y.
+The function _pow_recursion takes two integers x and y as arguments and returns the result of x^y. If y is less than 0, the function returns -1. If y is equal to 0, the function returns 1. Otherwise, the function returns x multiplied by the result of _pow_recursion(x, y-1), which is calculated recursively by calling the _pow_recursion function again with x and y-1 as arguments.
+
+### Write a function that returns the natural square root of a number.
+The function _sqrt_recursion takes an integer n as an argument and returns the natural square root of n. If n is less than 0, the function returns -1. Otherwise, the function calls the helper function _sqrt_helper with arguments n and 0. The _sqrt_helper function takes two integers n and next as arguments. If next * next is equal to n, the function returns next, which is the square root of n. If next * next is greater than n, the function returns -1, indicating that n does not have a natural square root. Otherwise, the function calls itself recursively with arguments n and next+1, incrementing the value of next by 1 in each recursive call until it finds the square root of n or determines that n does not have a natural square root.
+
 ##### wildcmp
 Here's the implementation of the wildcmp function in C using recursion:
 
