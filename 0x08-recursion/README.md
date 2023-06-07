@@ -26,7 +26,7 @@ The function is_palindrome takes a pointer to a string s as an argument and retu
 ##### wildcmp
 Here's the implementation of the wildcmp function in C using recursion:
 
-The idea is to compare the current character of s1 with the current character of s2. If they match, we continue recursively comparing the next characters. If they don't match and there's no star in s2 to replace the character, the strings don't match. If we encounter a star, we can either skip it and compare s1 with the rest of s2, or we can skip the first character of s1 and compare the rest of s1 with s2. We return true if we reach the end of both strings simultaneously, meaning they match.
+The function wildcmp takes two pointers to strings s1 and s2 as arguments. If both strings are empty (i.e., their first characters are the null character \0), the function returns 1, indicating that the strings are identical. If the first character of s2 is the wildcard character *, the function returns the result of calling itself recursively with arguments s1 and s2+1, or, if s1 is not empty, the result of calling itself recursively with arguments s1+1 and s2. This allows the wildcard character to match any sequence of characters in s1, including an empty sequence. If the first characters of s1 and s2 are equal, the function calls itself recursively with arguments s1+1 and s2+1, incrementing both pointers to compare the next characters in the strings. If the first characters of s1 and s2 are not equal and s2 is not a wildcard character, the function returns 0, indicating that the strings are not identical. 
 
 ##### palindrome recursion
 
