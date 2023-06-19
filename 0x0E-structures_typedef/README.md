@@ -1,5 +1,82 @@
 ### C - Structures, typedef
 
+### Given this code:
+
+struct point {
+   int x;
+   int y;
+};
+struct point my_point = { 3, 7 };
+struct point *p = &my_point;
+
+To set the member y of my variable my_point to 98, I can do (select all valid answers):
+
+    p->y = 98;
+
+    (*p).y = 98;
+
+    p.y = 98;
+
+    my_point->y = 98;
+
+    my_point.y = 98;
+
+The other two options are not valid:
+
+    p.y = 98; is incorrect because p is a pointer, and the member access operator . is used with objects, not pointers. To access members through a pointer, you should use the arrow operator ->.
+
+    my_point->y = 98; is incorrect because my_point is not a pointer but a struct object. The arrow operator -> is used to access members through pointers, not with objects. In this case, you can directly access the member y using the dot operator ..
+
+
+### Those two codes do the same thing:
+
+typedef struct point point;
+struct point {
+   int    x;
+   int    y;
+};
+point p = {1, 2};
+
+typedef struct point point;
+struct point {
+   int    x;
+   int    y;
+};
+point p = { .y = 2, .x = 1 };
+
+    False: the members of the structures will not have the same values
+
+    False: the second does not compile
+
+    True = This is the answer
+
+Question #2
+
+You should write documentation for all the structures you create
+
+    As soon as I write my structure. = correct
+
+    I’ll do it 5 minutes before the deadline when I try Betty on my header file
+
+    True = correct
+
+Question #3
+
+The general syntax for a struct declaration in C is:
+
+struct tag_name {
+   type member1;
+   type member2;
+   /* declare as many members as desired, but the entire structure size must be known to the compiler. */
+};
+
+    Maybe
+
+    False
+
+    True = This is the answer
+
+
 ##### Write a function that creates a new dog.
 
     Prototype: dog_t *new_dog(char *name, float age, char *owner);

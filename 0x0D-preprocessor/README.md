@@ -143,6 +143,23 @@ The macro TABLESIZE will expand to 37, not 1020. Here's why:
 TABLESIZE is not redefined or undefined, so it still expands to BUFSIZE, which was last defined as 37.
 Therefore, the macro TABLESIZE will expand to 37.
 
+### What is the gcc option that runs only the preprocessor?
+
+    -cisfun
+
+    -p
+
+    -pedantic
+
+    -preprocessor
+
+    -E = This is the correct answer
+
+    -P
+
+    -a
+
+
 ##### Why should we use include guards in our header files?
 The reason we should use include guards in our header files is to avoid the problem of double inclusion when dealing with the #include directive.
 
