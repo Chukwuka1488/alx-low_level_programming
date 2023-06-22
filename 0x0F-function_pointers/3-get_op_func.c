@@ -1,5 +1,3 @@
-#include "function_pointers.h"
-#include "3-op_functions.c"
 #include "3-calc.h"
 
 /**
@@ -12,7 +10,7 @@
  */
 int (*get_op_func(char *s))(int, int) {
     /* Define an array of op_t structs */
-    op_t op[] = {
+    op_t ops[] = {
         {"+", op_add},
         {"-", op_sub},
         {"*", op_mul},
@@ -23,9 +21,9 @@ int (*get_op_func(char *s))(int, int) {
     int i = 0;
 
     /* Find the operator in the ops array */
-    while (op[i].op != NULL && *op[i].op != *s)
+    while (ops[i].op != NULL && *ops[i].op != *s)
         i++;
 
     /* Return the matching function */
-    return (op[i].f);
+    return (ops[i].f);
 }
