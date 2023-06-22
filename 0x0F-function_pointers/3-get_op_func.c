@@ -11,7 +11,7 @@
  */
 int (*get_op_func(char *s))(int, int) {
     /* Define an array of op_t structs */
-    op_t ops[] = {
+    op_t op[] = {
         {"+", op_add},
         {"-", op_sub},
         {"*", op_mul},
@@ -22,9 +22,9 @@ int (*get_op_func(char *s))(int, int) {
     int i = 0;
 
     /* Find the operator in the ops array */
-    while (ops[i].op != NULL && *ops[i].op != *s)
+    while (op[i].op != NULL && *op[i].op != *s)
         i++;
 
     /* Return the matching function */
-    return (ops[i].f);
+    return (op[i].f);
 }
