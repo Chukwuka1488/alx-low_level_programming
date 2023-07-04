@@ -1,17 +1,17 @@
 section .data
-    hello db "Hello, Holberton", 0
+    hello db 'Hello, Holberton', 10, 0
 
 section .text
+    global main
     extern printf
 
-    global main
-    main:
-        sub rsp, 8
-        mov rdi, hello
-        xor eax, eax
-        call printf
+main:
+    push rbp
+    mov rbp, rsp
+    mov rdi, hello
+    xor rax, rax
+    call printf
+    mov rax, 0
+    pop rbp
+    ret
 
-        add rsp, 8
-        mov eax, 0x60
-        xor edi, edi
-        syscall
