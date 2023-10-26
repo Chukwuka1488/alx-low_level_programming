@@ -5,5 +5,5 @@ CC = gcc
 SRC = main.c school.c
 
 # Name of the executable
-school: $(SRC)
+all:
 	$(CC) $(SRC) -o school
