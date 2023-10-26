@@ -1,0 +1,9 @@
+# Compiler to be used
+CC = gcc
+
+# .c files
+SRC = main.c school.c
+
+# Name of the executable
+school: $(SRC)
+	$(CC) $(SRC) -o school
