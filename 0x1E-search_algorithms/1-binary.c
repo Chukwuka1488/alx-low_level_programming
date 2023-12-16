@@ -1,39 +1,55 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void print_array(int *array, size_t start, size_t end)
+/**
+ * print_array - Prints an array of integers
+ *
+ * @array: The array to be printed
+ * @size: Number of elements in @array
+ */
+void print_array(const int *array, size_t size)
 {
-    size_t i;
+    size_t index;
 
     printf("Searching in array: ");
-    for (i = start; i < end; i++)
+    for (index = 0; index < size; index++)
     {
-        printf("%d", array[i]);
-        if (i < end - 1)
+        if (index > 0)
             printf(", ");
-        else
-            printf("\n");
+        printf("%d", array[index]);
     }
+    printf("\n");
 }
 
+/**
+ * binary_search - Searches for a value in a sorted array of integers
+ *                 using the Binary search algorithm
+ *
+ * @array: Pointer to the first element of the array to search in
+ * @size: Number of elements in @array
+ * @value: Value to search for
+ *
+ * Return: The index where value is located, or -1 on failure
+ */
 int binary_search(int *array, size_t size, int value)
 {
-    size_t start = 0;
-    size_t end = size - 1;
-    size_t mid;
+    size_t left = 0;
+    size_t right = size - 1;
+    size_t middle;
 
     if (!array)
         return (-1);
 
-    while (start <= end)
+    while (left <= right)
     {
-        print_array(array, start, end + 1);
-        mid = start + (end - start) / 2;
-        if (array[mid] < value)
-            start = mid + 1;
-        else if (array[mid] > value)
-            end = mid - 1;
+        print_array(array + left, right - left + 1);
+        middle = left + (right - left) / 2;
+        if (array[middle] == value)
+            return (middle);
+        if (array[middle] < value)
+            left = middle + 1;
         else
-            return (mid);
+            right = middle - 1;
     }
 
     return (-1);
